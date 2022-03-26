@@ -4,7 +4,6 @@ const fs = require('fs');
 const inquirer = require('inquirer');
 
 // // TODO: Create an array of questions for user input
-// const questions = [];
 const prompQuestions = () => {
     return inquirer.prompt([
       {
@@ -107,11 +106,6 @@ const prompQuestions = () => {
 
 prompQuestions()
 .then(answers => console.log(answers))
-
-
-
-
-
 
 // // TODO: Create a function to write README file
 // function writeToFile(fileName, data) {}
