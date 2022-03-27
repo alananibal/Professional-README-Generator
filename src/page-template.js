@@ -68,7 +68,7 @@ ${tests}
 
 ## Questions
 
-<a href="https://github.com/${gitRepo}">My git hub</a> 
+<a href="https://github.com/${gitRepo}">My github</a> 
 <br>
 <a href="mailto:${email}"> My Email </a>
 
