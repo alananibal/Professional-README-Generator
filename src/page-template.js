@@ -1,15 +1,38 @@
-const generateTxt = (title, description) => {
-    return`
+const generatePage = (answers) => {
+
+    const {
+        title,
+        description,
+        contents,
+        installation,
+        usage,
+        credits,
+        license,
+        contributing,
+        tests,
+        gitRepo,
+        email
+
+    } = answers;
+    let licenseBadge = ""
+    if (license === 'MIT') {
+        licenseBadge = '[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)'
+    }
+    if (license === 'GNU') {
+        licenseBadge = '[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)'
+    }
+    if (license === 'Apache') {
+        licenseBadge = '[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)'
+    }
+
+    return `
     # ${title}
+${licenseBadge}
+
 
 ## Description 
 
 ${description}
-
-If you're new to Markdown, read the GitHub guide on [Mastering Markdown](https://guides.github.com/features/mastering-markdown/).
-
-If you need an example of a good README, check out [the VSCode repository](https://github.com/microsoft/vscode).
-
 
 ## Table of Contents (Optional)
 
@@ -18,54 +41,38 @@ If your README is very long, add a table of contents to make it easy for users t
 * [Installation](#installation)
 * [Usage](#usage)
 * [Credits](#credits)
-* [License](#license)
+* [License/Badges](#license)
+* [Contributing](#contributing)
+* [Tests](#tests)
 
 
 ## Installation
 
-What are the steps required to install your project? Provide a step-by-step description of how to get the development environment running.
-
+${installation}
 
 ## Usage 
 
-Provide instructions and examples for use. Include screenshots as needed. 
+${usage}
 
 
 ## Credits
 
-List your collaborators, if any, with links to their GitHub profiles.
-
-If you used any third-party assets that require attribution, list the creators with links to their primary web presence in this section.
-
-If you followed tutorials, include links to those here as well.
-
-
-
-## License
-
-The last section of a good README is a license. This lets other developers know what they can and cannot do with your project. If you need help choosing a license, use [https://choosealicense.com/](https://choosealicense.com/)
-
-
----
-
-🏆 The sections listed above are the minimum for a good README, but your project will ultimately determine the content of this document. You might also want to consider adding the following sections.
-
-## Badges
-
-![badmath](https://img.shields.io/github/languages/top/lernantino/badmath)
-
-Badges aren't _necessary_, per se, but they demonstrate street cred. Badges let other developers know that you know what you're doing. Check out the badges hosted by [shields.io](https://shields.io/). You may not understand what they all represent now, but you will in time.
-
+${credits}
 
 ## Contributing
 
-If you created an application or package and would like other developers to contribute it, you will want to add guidelines for how to do so. The [Contributor Covenant](https://www.contributor-covenant.org/) is an industry standard, but you can always write your own.
-
+${contributing}
 ## Tests
 
-Go the extra mile and write tests for your application. Then provide examples on how to run them.
+${tests}
+
+## Questions
+
+<a href="https://github.com/${gitRepo}">My git hub</a> 
+<br>
+<a href="mailto:${email}"> My Email </a>
 
     `;
 };
 
-module.exports = generateTxt;
+module.exports = generatePage;
